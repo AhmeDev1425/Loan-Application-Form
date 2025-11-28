@@ -5,6 +5,7 @@
   --primary-color: #4f46e5; /* لون أساسي */
   --secondary-color: #6366f1; 
   --background-color: #6365f156;
+  --disabled-color: #0c0e9e70;
   --box-background: #ffffff;
   --border-radius: 12px;
   --box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -91,6 +92,18 @@ body {
 /* ===== Buttons ===== */
 button {
   background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* ===== Buttons ===== */
+button:disabled {
+  background-color: var(--disabled-color);
   color: #fff;
   border: none;
   padding: 12px;
