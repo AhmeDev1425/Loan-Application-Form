@@ -1,0 +1,111 @@
+/* styles/loanApp.css */
+
+/* ===== Variables ===== */
+:root {
+  --primary-color: #4f46e5; /* لون أساسي */
+  --secondary-color: #6366f1; 
+  --background-color: #f9fafb;
+  --box-background: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  --text-color: #111827;
+  --placeholder-color: #9ca3af;
+  --padding: 16px;
+}
+
+/* ===== Body ===== */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* ===== Container ===== */
+.loan-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--box-background);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== Title ===== */
+.loan-container h1 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* ===== Input Boxes ===== */
+.loan-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.loan-input label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.loan-input input {
+  padding: 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.loan-input input:focus {
+  border-color: var(--primary-color);
+}
+
+/* ===== Checkbox Box ===== */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer; /* مهم عشان تحس بالضغط على النص */
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* ===== Buttons ===== */
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .loan-container {
+    margin: 20px;
+    padding: 16px;
+  }
+}
