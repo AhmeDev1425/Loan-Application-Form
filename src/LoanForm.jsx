@@ -1,7 +1,7 @@
 
 import OverlayApp from './OverlayApp'
 import { useState } from "react";
-import PhoneInput from './PhoneInput'
+import InputComponent from './InputComponent'
 
 export default function LoanForm() {
   const [showModel, setShowModel]  = useState(false)
@@ -18,7 +18,7 @@ export default function LoanForm() {
   )
   
   function handlePhoneInput(value) {
-    setLoanInputs({...loanInputs, phone:value})
+    setLoanInputs({...loanInputs, phone: value})
   }
   
   
@@ -54,29 +54,18 @@ export default function LoanForm() {
           </div>
 
           <div className="loan-input">
-            <PhoneInput handleChange={handlePhoneInput}/>
+            <InputComponent inputName={"Phone"} handleChange={handlePhoneInput}/>
           </div>
 
 
           <div className="loan-input">
-            <label>Age</label>
-            <input
-              type="number"
-              value={loanInputs.age}
-              onChange={(e)=> {setLoanInputs({...loanInputs,age:e.target.value})}}
-              placeholder="What is your age: "
-            />
+            <InputComponent inputName={"Age"} handleChange={handlePhoneInput}/>
+
             </div>
 
           <div className="loan-input">
             <label>Salary</label>
-            <input
-              type="number"
-              value={loanInputs.salary}
-              onChange={(e)=> {setLoanInputs({...loanInputs,salary:e.target.value})}}
-
-              placeholder="What is your phone number: "
-            />
+            <InputComponent inputName={"Salary"} handleChange={handlePhoneInput}/>
           </div>
 
           <div className="checkbox-container">
