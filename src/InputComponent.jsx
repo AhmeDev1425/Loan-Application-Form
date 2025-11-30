@@ -1,17 +1,20 @@
+import { useContext } from "react"
+import { LoanInputContext } from "./contexts/LoanInputContext"
 
-export default function InputComponent({value, handleChange, inputName}) {
+export default function InputComponent() {
 
+    const inputContext = useContext(LoanInputContext)
     return(
 
         <>
-            <label>{inputName}</label>
+            <label>{inputContext.inputName}</label>
                 <input
                 type="number"
-                value={value}
+                value={inputContext.inputValue}
                 onChange={(e)=> {
-                    handleChange(e.target.value)
+                    inputContext.handleChange(e.target.value)
                     }}
-                placeholder={`What is your ${inputName} : `}
+                placeholder={`What is your ${inputContext.inputName} : `}
                 />
 
         </>

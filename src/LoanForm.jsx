@@ -2,6 +2,7 @@
 import OverlayApp from './OverlayApp'
 import { useState } from "react";
 import InputComponent from './InputComponent'
+import { LoanInputContext } from "./contexts/LoanInputContext"
 
 export default function LoanForm() {
   const [showModel, setShowModel]  = useState(false)
@@ -19,6 +20,18 @@ export default function LoanForm() {
   
   function handlePhoneInput(value) {
     setLoanInputs({...loanInputs, phone: value})
+  }
+  
+  
+  
+  function handleSalaryInput(value) {
+    setLoanInputs({...loanInputs, salary: value})
+  }
+  
+  
+  
+  function handleAgeInput(value) {
+    setLoanInputs({...loanInputs, age: value})
   }
   
   
@@ -52,19 +65,24 @@ export default function LoanForm() {
               placeholder="What is your full name: "
             />
           </div>
-
           <div className="loan-input">
-            <InputComponent inputName={"Phone"} handleChange={handlePhoneInput}/>
+            <LoanInputContext.Provider value={{inputValue:loanInputs.phone, inputName:"Phone", handleChange:handlePhoneInput}} >
+              <InputComponent />
+            </LoanInputContext.Provider>
           </div>
 
-
           <div className="loan-input">
-            <InputComponent inputName={"Age"} handleChange={handlePhoneInput}/>
-            </div>
-
-          <div className="loan-input">
-            <InputComponent inputName={"Salary"} handleChange={handlePhoneInput}/>
+            <LoanInputContext.Provider value={{inputValue:loanInputs.salary, inputName:"Salary",handleChange:handleSalaryInput}} >
+              <InputComponent />
+            </LoanInputContext.Provider>
           </div>
+
+          <div className="loan-input">
+            <LoanInputContext.Provider value={{inputValue:loanInputs.age, inputName:"Age",handleChange:handleAgeInput}} >
+              <InputComponent />
+            </LoanInputContext.Provider>
+          </div>
+
 
           <div className="checkbox-container">
             <label>
