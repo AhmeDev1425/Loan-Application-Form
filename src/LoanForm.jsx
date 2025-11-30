@@ -1,9 +1,10 @@
 
-// import OverlayApp from './OverlayApp'
+import OverlayApp from './OverlayApp'
 import { useState } from "react";
 
 export default function LoanForm() {
-
+  const [showModel, setShowModel]  = useState(false)
+  const [showError, setShowError]  = useState(false)
   const [loanInputs, setLoanInputs] = useState(
     {
       name:"",
@@ -14,13 +15,26 @@ export default function LoanForm() {
 
     }
   )
+  
 
   return (
     <>
       <div className="loan-container">
         <h1>Loan Request</h1>
+
         <form 
-        // onSubmit={} 
+        onSubmit={(e)=>{
+          e.preventDefault()
+          if (loanInputs.name){
+
+            setShowModel(true)
+            return
+          }
+
+          setShowError(true)
+          }
+        } 
+
         style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <div className="loan-input">
             <label>Full Name</label>
@@ -77,13 +91,20 @@ export default function LoanForm() {
           </div> 
 
           <button 
-            disabled={!(loanInputs.name && loanInputs.age && loanInputs.salary)}
+            // disabled={!(loanInputs.name && loanInputs.age && loanInputs.salary)}
             type="submit">Submit Request</button>
         </form>
       </div>
       
-      <div>
-        {/* <OverlayApp/> */}
+      <div
+        onClick={()=>{
+        showModel === true? setShowModel(false):""
+        showError === true? setShowError(false):""
+        console.log("aaaaaaaaaaa",showModel)
+
+        }}
+      >
+        <OverlayApp isVisable={showModel} isError={showError}/>
       </div>
     </>
 
