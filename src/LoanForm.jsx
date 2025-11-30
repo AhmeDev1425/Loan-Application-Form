@@ -60,11 +60,9 @@ export default function LoanForm() {
 
           <div className="loan-input">
             <InputComponent inputName={"Age"} handleChange={handlePhoneInput}/>
-
             </div>
 
           <div className="loan-input">
-            <label>Salary</label>
             <InputComponent inputName={"Salary"} handleChange={handlePhoneInput}/>
           </div>
 
