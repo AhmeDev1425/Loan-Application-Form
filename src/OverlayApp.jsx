@@ -18,7 +18,7 @@ export default function OverlayApp(props) {
       <>
         {(
             <div className="overlay">
-                <div className="overlay-message">Requestion cannot sent ××××</div>
+                <div style={{color:"red"}} className="overlay-message">Requestion cannot sent ××××</div>
             </div>
         )}
         

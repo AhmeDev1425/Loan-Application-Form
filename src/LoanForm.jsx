@@ -1,6 +1,7 @@
 
 import OverlayApp from './OverlayApp'
 import { useState } from "react";
+import PhoneInput from './PhoneInput'
 
 export default function LoanForm() {
   const [showModel, setShowModel]  = useState(false)
@@ -15,6 +16,11 @@ export default function LoanForm() {
 
     }
   )
+  
+  function handlePhoneInput(value) {
+    setLoanInputs({...loanInputs, phone:value})
+  }
+  
   
 
   return (
@@ -48,13 +54,7 @@ export default function LoanForm() {
           </div>
 
           <div className="loan-input">
-            <label>Phone</label>
-            <input
-              type="number"
-              value={loanInputs.phone}
-              onChange={(e)=> {setLoanInputs({...loanInputs,phone:e.target.value})}}
-              placeholder="What is your phone number: "
-            />
+            <PhoneInput handleChange={handlePhoneInput}/>
           </div>
 
 
